@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import ChuckNorrisCard from './components/chuck_card';
 import ChuckInfo from './components/chuck_info';
+import ChuckJokes from './components/chuck_jokes';
 import Joke from './joke';
 
 function App() {
@@ -33,10 +34,14 @@ function App() {
       <ChuckNorrisCard greeting={chuckGreeting} />
 
       <h2>Chuck Info: </h2>
-      <ChuckInfo />
+      <ChuckInfo 
+        whalesSaved={whalesSaved}
+        roundHouseKicks={roundHouseKicks}/>
 
       <h2>Jokes: </h2>
-
+        <div>{jokes.map((joke: Joke) =>  (
+            ChuckJokes(joke.joke)
+        ))}</div>
     </div>
   );
 }
